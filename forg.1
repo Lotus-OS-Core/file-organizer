@@ -1,0 +1,132 @@
+.TH FORG 1 "December 2025" "forg v1.0.0" "File Organizer Manual"
+.SH NAME
+forg \- Organize files into categorized subfolders
+.SH SYNOPSIS
+\fBforg\fR [\fIOPTIONS\fR]
+.SH DESCRIPTION
+\fBforg\fR is a command-line tool that organizes files in the current directory into categorized subfolders based on their file extensions. It provides automatic file categorization, recursive directory traversal, prefix support, and collision handling.
+.SH OPTIONS
+.SS Directory Options
+\fBforg\fR
+.RS
+Organize top-level files only (default behavior)
+.RE
+.PP
+\fBforg\fR \fB\-r\fR
+.RS
+Recursive mode \- process all files in current directory and subdirectories
+.RE
+.PP
+\fBforg\fR \fB\-r\fR \fB\-\-depth\fR \fIN\fR
+.RS
+Process files up to N levels deep (N >= 1)
+.RE
+.SS General Options
+.PP
+\fB\-r\fR, \fB\-\-recursive\fR
+.RS
+Enable recursive directory traversal
+.RE
+.PP
+\fB\-d\fR, \fB\-\-depth\fR \fI<number>\fR
+.RS
+Maximum depth for recursion (default: 1)
+.RE
+.PP
+\fB\-p\fR, \fB\-\-prefix\fR \fI<text>\fR
+.RS
+Add a prefix to category folder names (e.g., \fBbackup_Images\fR)
+.RE
+.PP
+\fB\-v\fR, \fB\-\-verbose\fR
+.RS
+Show detailed progress information
+.RE
+.PP
+\fB\-n\fR, \fB\-\-dry\-run\fR
+.RS
+Preview what would be done without making changes
+.RE
+.PP
+\fB\-h\fR, \fB\-\-help\fR
+.RS
+Show this help message
+.RE
+.PP
+\fB\-\-version\fR
+.RS
+Show version information
+.RE
+.SH CATEGORIES
+\fBforg\fR organizes files into the following categories based on file extensions:
+.PP
+\fBImages\fR: jpg, jpeg, png, gif, bmp, tiff, svg, webp, ico, psd, ai, eps
+.PP
+\fBVideos\fR: mp4, mkv, avi, mov, wmv, flv, webm, m4v, mpeg, mpg, 3gp, rmvb
+.PP
+\fBAudio\fR: mp3, wav, flac, aac, ogg, m4a, wma, aiff, mid, midi
+.PP
+\fBDocuments\fR: pdf, doc, docx, txt, rtf, odt, xls, xlsx, ppt, pptx, csv, md, markdown, log
+.PP
+\fBArchives\fR: zip, rar, 7z, tar, gz, bz2, xz, iso, dmg, pkg, deb, rpm
+.PP
+\fBCode\fR: cpp, c, h, hpp, py, js, ts, html, htm, css, scss, java, go, rs, rb, php, swift, kt, scala, sh, bash, json, xml, yaml, yml, toml, ini, cfg, conf
+.PP
+\fBExecutables\fR: exe, app, bin, msi, run, elf, so, dll, dylib
+.PP
+\fBDatabase\fR: sql, db, sqlite, mdb, accdb, frm, ibd
+.PP
+\fBBooks\fR: epub, mobi, azw, azw3, fb2, djvu, chm
+.PP
+\fBOthers\fR: Files with unrecognized extensions
+.SH SKIPPED ITEMS
+The following files and directories are automatically skipped:
+.PP
+Hidden files (starting with '.')
+.PP
+Version control directories: .git, .svn, .hg, .bzr
+.PP
+IDE directories: .vscode, .idea, .vs
+.PP
+Build directories: build, dist, node_modules, .cache, __pycache__
+.PP
+System files: .DS_Store, Thumbs.db, .Spotlight-V100, .Trashes
+.SH EXAMPLES
+.PP
+Organize top-level files in current directory:
+.RS
+\fBforg\fR
+.RE
+.PP
+Organize all files recursively:
+.RS
+\fBforg\fR \fB\-r\fR
+.RE
+.PP
+Organize files up to 2 levels deep:
+.RS
+\fBforg\fR \fB\-r\fR \fB\-\-depth\fR 2
+.RE
+.PP
+Organize with prefix:
+.RS
+\fBforg\fR \fB\-p\fR backup_
+.RE
+.PP
+Verbose mode with preview:
+.RS
+\fBforg\fR \fB\-v\fR \fB\-n\fR
+.RE
+.SH EXIT STATUS
+.PP
+\fB0\fR: Success
+.PP
+\fB1\fR: Error occurred
+.SH AUTHOR
+Written by LotusOS-Core
+.SH BUGS
+Report bugs at: https://github.com/Lotus-OS-Core/file-organizer
+.SH COPYRIGHT
+This is free software. You may redistribute it under the terms of the MIT License.
+.SH SEE ALSO
+\fBfind\fR(1), \fBmv\fR(1), \fBsort\fR(1)
